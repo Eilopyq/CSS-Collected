@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #426696;
+  font-weight: 600;
+  font-size: 2.5rem;
+  opacity: 0.8;
+}
+
+h3,
+h5 {
+  color: #658ec6;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+h4 {
+  color: #426696;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+main {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+  /* 该函数用于创建一个线性渐变的图像 */
+  /* 该句表示从左下到右上，从颜色一到颜色二 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass {
+  min-height: 80vh;
+  width: 60%;
+  background: linear-gradient(to right bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3));
+  border-radius: 1rem;
+  z-index: 2;
+  backdrop-filter: blur(2rem);
+  /* backdrop-filter是让当前元素所在区域后面的内容模糊灰度或高亮之类，要想看到效果，需要元素本身半透明或者完全透明；而filter是让当前元素自身模糊灰度或高亮之类。 */
+  display: flex;
+}
+
+.circle1,
+.circle2 {
+  background: linear-gradient(to right bottom,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.3));
+  height: 9em;
+  width: 9rem;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.circle1 {
+  top: 5%;
+  right: 15%;
+}
+
+.circle2 {
+  bottom: 5%;
+  left: 15%;
+}
+
+.dashboard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  background: linear-gradient(to right bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3));
+  border-radius: 1rem;
+}
+
+.link {
+  display: flex;
+  margin: 1rem 0rem;
+  padding: 0.35rem 2.5rem;
+  align-items: center;
+}
+
+.link h3 {
+  padding: 0rem 1rem;
+}
+
+.games {
+  flex: 2;
+}
+
+.pro {
+  background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+  border-radius: 1rem;
+  color: white;
+  padding: 0.8rem;
+  position: relative;
+  margin: 1rem 1rem;
+}
+
+.pro img {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  height: 80%;
+  width: 44%;
+}
+
+.pro h3 {
+  width: 50%;
+  color: white;
+  font-weight: 600;
+}
+
+/* GAMES */
+.status {
+  margin-bottom: 1.5rem;
+}
+
+.status input {
+  background: linear-gradient(to right bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3));
+  border: none;
+  width: 50%;
+  outline: none;
+  padding: 0.25rem;
+  border-radius: 1rem;
+}
+
+.games {
+  margin: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.card {
+  display: flex;
+  background: linear-gradient(to left top,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.5));
+  border-radius: 1rem;
+  margin: 1rem 0rem;
+  padding: 1rem;
+  box-shadow: 4px 4px 13px rgba(122, 122, 122, 0.212);
+  justify-content: space-between;
+}
+
+.progress {
+  background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+  width: 100%;
+  height: 17%;
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgb(236, 236, 236);
+  position: absolute;
+  left: 60%;
+  /* 利用伪元素来制造进度条 */
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center ;
+}
+
+.percentage {
+  font-weight: bold;
+  background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+  -webkit-background-clip: text;
+  /* 使用了这个属性的意思是，以区块内的文字作为裁剪区域向外裁剪，文字的背景即为区块的背景，文字之外的区域都将被裁剪掉。 */
+  -webkit-text-fill-color: transparent;
+  /* 让文字颜色变成和背景一样的颜色 */
+}

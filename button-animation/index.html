@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <button>
+            <span class="label">Confirm</span>
+            <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="44.419" height="36.507" viewBox="0 0 44.419 36.507"><defs><style>.a{fill:none;stroke:#fff;stroke-width:2px;}</style></defs><path class="a" d="M130.682,218.058l14.586,17.462,28.295-34.305" transform="translate(-129.915 -200.579)"/></svg>
+                <!-- 导入勾勾 -->
+            </span>
+        </button>
+        <p>Next</p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"
+        integrity="sha512-1dalHDkG9EtcOmCnoCjiwQ/HEB5SDNqw8d4G2MKoNwjiwMNeBAkudsBCmSlMnXdsH8Bm0mOd3tl/6nL5y0bMaQ=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/CSSRulePlugin.min.js"
+        integrity="sha512-9F1xsW3TBG87UnyGcF1SrXph249h/eUKPRKJZVhXxW+OeDmCiBvU9/gLfOo5qEvGTjTxOr6YQrY4ImjL90IUyw=="
+        crossorigin="anonymous"></script>
+    <!-- 导入js和cssrules -->
+    <script>
+        gsap.registerPlugin(CSSRulePlugin);
+        const t1 = gsap.timeline({
+            defaults: {
+                ease: Power2.easeOut,
+            }
+        })
+        btn = document.querySelector('button')
+        rule = CSSRulePlugin.getRule('button::before');
+        t1.to('.label',{opacity:0,height:0,position:'absolute',duration:'0.25s'})
+        // 让confirm透明度变为0即消失
+        t1.to('button',{borderRadius:'50%',width:'2.5em',height:'2.5em',ease: Elastic.easeOut.config(.7, 0.3), duration: 1.2},'-=0.5s')
+        // 让button变圆形
+        t1.to(rule,{borderRadius:'50%'},'-=1s')
+        // 让before变圆形
+        t1.to('svg',{strokeDasharray:'90'},'-=1.3')
+        // 让原本隐藏的svg出现
+        t1.to('path', {attr: {d: 'M144.531,235.3l16.159-17.754-16.159-17.693'} }, "+=1")
+        // 让svg改变排列位置
+        t1.to('p', { clipPath: 'circle(100% at 50% 50%)', duration: 1.2});
+        t1.pause();
+        // 暂停
+
+        btn.addEventListener('click',() =>{
+            t1.play()
+        })
+    </script>
+</body>
+
+</html>

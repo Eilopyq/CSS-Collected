@@ -1,0 +1,66 @@
+* {
+    font-family: 'Noto Serif TC', serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #5d00d6;
+    margin: 0;
+    display: grid;
+    /* 采用网格布局，CSS最强大的布局格式 */
+    place-items: center;
+    /* grid + place-items 进行垂直居中 */
+    color: white;
+    height: 100vh;
+    /* .container {
+        grid-template-columns: 80px auto 100px;
+        grid-template-rows: 25% 100px auto 60px;
+    }
+    grid-template-columns后面3个值，表示分为了3列，从左往右每列的尺寸分别是80px，auto（自动）和100px； 
+    grid-template-rows属性值含4个值，表示分为了4行，从上往下每行的高度分别是25%，100px，auto（自动）和60px。 */
+}
+
+button {
+    background: none;
+    border: none;
+    color: white;
+    position: relative;
+    padding: 0.5em 1em;
+    /* 1em = 13.333px 1rem = 16px */
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+    border: 2px solid white;
+    cursor: pointer;
+    border-radius: 0.2em;
+    outline: none;
+    width: 10em;
+}
+
+button::before {
+    position: absolute;
+    content: "";
+    background: #5000BB;
+    height: 100%;
+    width: 100%;
+    top: 0.5em;
+    left: 0.5em;
+    z-index: -1;
+    border-radius: 0.2em;
+}
+
+p {
+    text-align: center;
+    font-weight: bold;
+    clip-path: circle(0% at 50% 50%);
+    /* 讲解：https://www.cnblogs.com/liangdecha/p/9629150.html */
+}
+
+svg{
+    position: absolute;
+    top:0.7em;
+    left:0.5em;
+    stroke-dasharray: 0 103;
+}
